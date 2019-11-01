@@ -1,0 +1,14 @@
+<h2>Developer Contact Form</h2>
+
+<%= form_for(@contact) do |f| %>
+  <div class="form-group">
+    <label>Name</label>
+    <%= f.text_field :name, class: "form-control", placeholder: "Enter your Name ", required: true%>
+    <br/>
+Email Address <br> <br><input type="email" name="email" required placeholder="Enter a valid email address">    <br/><br>
+    <label>Feedback </label><br>
+    <%= f.text_area :feedback, class: "form-control", placeholder: "Feedback", required: true%>
+    <br/><br>
+    <%= f.submit text: "send", class: "btn btn-primary"%>
+  </div>
+<% end %>

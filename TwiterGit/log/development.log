@@ -1,0 +1,2133 @@
+Started GET "/" for 127.0.0.1 at 2019-11-01 18:29:56 +0530
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.2.3) lib/active_record/migration.rb:579:in `check_pending!'
+activerecord (5.2.3) lib/active_record/migration.rb:556:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:28:in `block in call'
+activesupport (5.2.3) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (5.2.3) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/debug_exceptions.rb:61:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.3) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.3) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.3) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.3) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.3) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.3) lib/rails/engine.rb:524:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ bin/rails:9
+  [1m[35m (94.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (86.7ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateRepositories (20191027054926)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "repositories" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "url" varchar, "stars" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191027054926_create_repositories.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191027054926"]]
+  ↳ bin/rails:9
+  [1m[35m (79.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateTweets (20191027055022)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "tweets" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "content" text, "retweets" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191027055022_create_tweets.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191027055022"]]
+  ↳ bin/rails:9
+  [1m[35m (88.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+Migrating to CreateContacts (20191101072721)
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "contacts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "feedback" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  ↳ db/migrate/20191101072721_create_contacts.rb:3
+  [1m[36mActiveRecord::SchemaMigration Create (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191101072721"]]
+  ↳ bin/rails:9
+  [1m[35m (75.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-01 13:00:17.489737"], ["updated_at", "2019-11-01 13:00:17.489737"]]
+  ↳ bin/rails:9
+  [1m[35m (69.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/" for 127.0.0.1 at 2019-11-01 18:30:42 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (141.9ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (55.9ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 10181ms (Views: 9960.6ms | ActiveRecord: 197.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 18:30:58 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (203.0ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (106.8ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 397ms (Views: 77.9ms | ActiveRecord: 309.8ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 18:31:00 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.7ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-subish"], ["url", "https://github.com/Subish07/saas-201-subish"], ["stars", 0], ["created_at", "2019-11-01 13:01:01.544418"], ["updated_at", "2019-11-01 13:01:01.544418"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (85.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 1020ms (ActiveRecord: 88.3ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 18:31:01 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.4ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.9ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 86ms (Views: 59.4ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 18:31:05 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 318ms (ActiveRecord: 1.1ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 18:31:13 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (121.6ms)
+Completed 200 OK in 167ms (Views: 157.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 18:55:40 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (103.5ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (46.0ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 202ms (Views: 37.0ms | ActiveRecord: 149.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 18:59:32 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (283.9ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (60.0ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 394ms (Views: 42.4ms | ActiveRecord: 343.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:01:37 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (92.2ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (56.9ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 208ms (Views: 40.5ms | ActiveRecord: 149.2ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:01:39 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 84ms (Views: 20.7ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:02:13 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LTcNrm1iVlNx9ZOroQNEvWMkfF+nbs+9LK+gX6wJpcePDy0Bsch1YLq29Lv9fFjdavFVfyEvUPY1/LRbzCusiQ==", "contact"=>{"name"=>"Adi", "email"=>"adithyanat26@gmail.com", "feedback"=>"   a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Adi"], ["email", "adithyanat26@gmail.com"], ["feedback", "   a"], ["created_at", "2019-11-01 13:32:13.977921"], ["updated_at", "2019-11-01 13:32:13.977921"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (103.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 2.8ms
+Completed 500 Internal Server Error in 411ms (ActiveRecord: 103.5ms)
+
+
+  
+ActionView::MissingTemplate (Missing template example_mailer/sample_email with "mailer". Searched in:
+  * "example_mailer"
+):
+  
+app/mailers/example_mailer.rb:6:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:03:22 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LTcNrm1iVlNx9ZOroQNEvWMkfF+nbs+9LK+gX6wJpcePDy0Bsch1YLq29Lv9fFjdavFVfyEvUPY1/LRbzCusiQ==", "contact"=>{"name"=>"Adi", "email"=>"adithyanat26@gmail.com", "feedback"=>"   a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Adi"], ["email", "adithyanat26@gmail.com"], ["feedback", "   a"], ["created_at", "2019-11-01 13:33:22.261550"], ["updated_at", "2019-11-01 13:33:22.261550"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (90.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 5.7ms
+Completed 500 Internal Server Error in 131ms (ActiveRecord: 91.2ms)
+
+
+  
+ActionView::MissingTemplate (Missing template example_mailer/sample_email with "mailer". Searched in:
+  * "example_mailer"
+):
+  
+app/mailers/example_mailer.rb:6:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:05:07 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LTcNrm1iVlNx9ZOroQNEvWMkfF+nbs+9LK+gX6wJpcePDy0Bsch1YLq29Lv9fFjdavFVfyEvUPY1/LRbzCusiQ==", "contact"=>{"name"=>"Adi", "email"=>"adithyanat26@gmail.com", "feedback"=>"   a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Adi"], ["email", "adithyanat26@gmail.com"], ["feedback", "   a"], ["created_at", "2019-11-01 13:35:07.587595"], ["updated_at", "2019-11-01 13:35:07.587595"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (86.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 1093.4ms
+Sent mail to adithyanat26@gmail.com (8.3ms)
+Date: Fri, 01 Nov 2019 19:05:08 +0530
+From: jaafefaafe@gmail.com
+To: adithyanat26@gmail.com
+Message-ID: <5dbc348cc373e_6d442b17206d6d90164de@aakash.mail>
+Subject: Sample Email
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+abcd
+Redirected to 
+Completed 500 Internal Server Error in 1359ms (ActiveRecord: 87.9ms)
+
+
+  
+NoMethodError (undefined method `contact_url' for #<ContactsController:0x00007f69a7ce5ac8>
+Did you mean?  contacts_url):
+  
+app/controllers/contacts_controller.rb:12:in `block (2 levels) in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:05:40 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LTcNrm1iVlNx9ZOroQNEvWMkfF+nbs+9LK+gX6wJpcePDy0Bsch1YLq29Lv9fFjdavFVfyEvUPY1/LRbzCusiQ==", "contact"=>{"name"=>"Adi", "email"=>"adithyanat26@gmail.com", "feedback"=>"   a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.2ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Adi"], ["email", "adithyanat26@gmail.com"], ["feedback", "   a"], ["created_at", "2019-11-01 13:35:40.046960"], ["updated_at", "2019-11-01 13:35:40.046960"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (74.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 2.0ms
+Sent mail to adithyanat26@gmail.com (3.6ms)
+Date: Fri, 01 Nov 2019 19:05:40 +0530
+From: jaafefaafe@gmail.com
+To: adithyanat26@gmail.com
+Message-ID: <5dbc34ac24c45_6d442b17206d67dc16540@aakash.mail>
+Subject: Sample Email
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+abcd
+Redirected to 
+Completed 500 Internal Server Error in 116ms (ActiveRecord: 75.8ms)
+
+
+  
+ActionController::ActionControllerError (Cannot redirect to nil!):
+  
+app/controllers/contacts_controller.rb:12:in `block (2 levels) in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:06:12 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LTcNrm1iVlNx9ZOroQNEvWMkfF+nbs+9LK+gX6wJpcePDy0Bsch1YLq29Lv9fFjdavFVfyEvUPY1/LRbzCusiQ==", "contact"=>{"name"=>"Adi", "email"=>"adithyanat26@gmail.com", "feedback"=>"   a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Adi"], ["email", "adithyanat26@gmail.com"], ["feedback", "   a"], ["created_at", "2019-11-01 13:36:12.586794"], ["updated_at", "2019-11-01 13:36:12.586794"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (149.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 1.9ms
+Sent mail to adithyanat26@gmail.com (2.2ms)
+Date: Fri, 01 Nov 2019 19:06:12 +0530
+From: jaafefaafe@gmail.com
+To: adithyanat26@gmail.com
+Message-ID: <5dbc34ccba483_6d442b17206d6b2416649@aakash.mail>
+Subject: Sample Email
+Mime-Version: 1.0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+abcd
+Redirected to 
+Completed 500 Internal Server Error in 359ms (ActiveRecord: 150.9ms)
+
+
+  
+NoMethodError (undefined method `contact_url' for #<ContactsController:0x00007f69a700fe48>
+Did you mean?  contacts_url):
+  
+app/controllers/contacts_controller.rb:12:in `block (2 levels) in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/__web_console/repl_sessions/8c13433bed04f1ca6b9a5b078a1a609f/trace" for 127.0.0.1 at 2019-11-01 19:06:27 +0530
+Started POST "/__web_console/repl_sessions/8c13433bed04f1ca6b9a5b078a1a609f/trace" for 127.0.0.1 at 2019-11-01 19:06:39 +0530
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:21:23 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (64.2ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (57.7ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 347ms (Views: 204.1ms | ActiveRecord: 121.9ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:21:26 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 69ms (Views: 49.3ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:21:44 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rEjAy5eR5EOmMZbMswoxv/eteZ41tP/MNRY8yi+CF4cOcOBkSzvHcG1y8dzvdS3f/nhQvrP1YIcsRSjOT6AeyQ==", "contact"=>{"name"=>"aak", "email"=>"aakash.mahalingam@gmail.com", "feedback"=>"abc"}, "commit"=>"Create Contact"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (1.8ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aak"], ["email", "aakash.mahalingam@gmail.com"], ["feedback", "abc"], ["created_at", "2019-11-01 13:51:44.842335"], ["updated_at", "2019-11-01 13:51:44.842335"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (79.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 7.9ms
+Completed 500 Internal Server Error in 280ms (ActiveRecord: 81.8ms)
+
+
+  
+NameError (uninitialized constant ExampleMailer::Mailgun):
+  
+app/mailers/example_mailer.rb:5:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started POST "/__web_console/repl_sessions/7b41bc628e332075963b87958b3995a5/trace" for 127.0.0.1 at 2019-11-01 19:22:30 +0530
+Started POST "/__web_console/repl_sessions/7b41bc628e332075963b87958b3995a5/trace" for 127.0.0.1 at 2019-11-01 19:22:32 +0530
+Started POST "/__web_console/repl_sessions/7b41bc628e332075963b87958b3995a5/trace" for 127.0.0.1 at 2019-11-01 19:22:37 +0530
+Started POST "/__web_console/repl_sessions/7b41bc628e332075963b87958b3995a5/trace" for 127.0.0.1 at 2019-11-01 19:22:41 +0530
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:28:07 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (100.8ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (67.9ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 409ms (Views: 218.2ms | ActiveRecord: 168.8ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:28:09 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 49ms (Views: 38.5ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:28:22 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"biR32MglER/Rjo5FoENfmYjC7fO8ca3oamaPke/oyALMHFd3FI8yLBrN6VX8PEP5gRfE0zowMqNzNZuVj8rBTA==", "contact"=>{"name"=>"aak", "email"=>"adithyanat26@gmail.com", "feedback"=>"aa"}, "commit"=>"Create Contact"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (1.0ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aak"], ["email", "adithyanat26@gmail.com"], ["feedback", "aa"], ["created_at", "2019-11-01 13:58:22.783665"], ["updated_at", "2019-11-01 13:58:22.783665"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (107.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 0.6ms
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 108.2ms)
+
+
+  
+Mailgun::CommunicationError (key not found: :ciphers):
+  
+app/mailers/example_mailer.rb:10:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:30:51 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (80.8ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (72.2ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 216ms (Views: 50.2ms | ActiveRecord: 153.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:30:55 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (109.6ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (73.6ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 257ms (Views: 68.0ms | ActiveRecord: 183.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:30:59 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (77.9ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (70.4ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 227ms (Views: 62.2ms | ActiveRecord: 148.3ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:31:08 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.2ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-subish"], ["url", "https://github.com/Subish07/saas-201-subish"], ["stars", 0], ["created_at", "2019-11-01 14:01:08.986315"], ["updated_at", "2019-11-01 14:01:08.986315"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (82.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 972ms (ActiveRecord: 84.0ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:31:09 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 29ms (Views: 24.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:31:11 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.9ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 414ms (ActiveRecord: 4.0ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:31:16 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:31:27 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"w42rEhdMHxPXGyHh+0cwgeXeBbHnYLXDcpR4l5V7EAFhtYu9y+Y8IBxYRvGnOCzh7AsskWEhKohrx2yT9VkZTw==", "contact"=>{"name"=>"aak", "email"=>"adithyanat26@gmail.com", "feedback"=>"a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aak"], ["email", "adithyanat26@gmail.com"], ["feedback", "a"], ["created_at", "2019-11-01 14:01:27.297789"], ["updated_at", "2019-11-01 14:01:27.297789"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (148.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 4.7ms
+Completed 500 Internal Server Error in 165ms (ActiveRecord: 148.5ms)
+
+
+  
+Mailgun::CommunicationError (key not found: :ciphers):
+  
+app/mailers/example_mailer.rb:10:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/__web_console/repl_sessions/88df0f0357aaf2f19d052a7437f6f55e/trace" for 127.0.0.1 at 2019-11-01 19:31:44 +0530
+Started POST "/__web_console/repl_sessions/88df0f0357aaf2f19d052a7437f6f55e/trace" for 127.0.0.1 at 2019-11-01 19:31:52 +0530
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:32:35 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (87.0ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (71.1ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 251ms (Views: 76.9ms | ActiveRecord: 158.1ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:32:37 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 223ms (ActiveRecord: 0.2ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:32:40 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 268ms (ActiveRecord: 0.2ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:32:44 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.1ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.1ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-subish"], ["url", "https://github.com/Subish07/saas-201-subish"], ["stars", 0], ["created_at", "2019-11-01 14:02:44.902631"], ["updated_at", "2019-11-01 14:02:44.902631"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (62.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 582ms (ActiveRecord: 63.8ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:32:45 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 48ms (Views: 39.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:32:46 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 223ms (ActiveRecord: 0.3ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:33:12 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "We’re partnering with @iitmadras on leveraging #AI to provide advanced lead scoring capabilities for our customers.… https://t.co/3M2H9M60yc"], ["retweets", 1], ["created_at", "2019-11-01 14:03:17.062556"], ["updated_at", "2019-11-01 14:03:17.062556"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (100.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "“Our customers are the airlines around the world. We have to offer 24/7 support for mission critical and safety cri… https://t.co/zrk5vlZtSG"], ["retweets", 4], ["created_at", "2019-11-01 14:03:17.171943"], ["updated_at", "2019-11-01 14:03:17.171943"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.4ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "An incredible 'finnish' to an amazing road trip across Europe! Thank you Helsinki, you were wonderful.… https://t.co/R80Uwf7FXO"], ["retweets", 0], ["created_at", "2019-11-01 14:03:17.244157"], ["updated_at", "2019-11-01 14:03:17.244157"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (62.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @PukanderAnna: Thank you @FreshworksInc and @SaniLeino for the very inspiring #freshworksroadshow touching the very crucial points of #C…"], ["retweets", 1], ["created_at", "2019-11-01 14:03:17.315489"], ["updated_at", "2019-11-01 14:03:17.315489"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "| Tis the season of all saints eve,\nWhen sloppy sales give you no reprieve |\n\n| Use Freshsales to solve your plight… https://t.co/LmOUfynvYb"], ["retweets", 1], ["created_at", "2019-11-01 14:03:17.391943"], ["updated_at", "2019-11-01 14:03:17.391943"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (56.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @PurePunjabiLtd: Leaving Stockholm! The 9th city on the European tour for @FreshworksInc  with Pure Punjabi heading the culinary experie…"], ["retweets", 1], ["created_at", "2019-11-01 14:03:17.458944"], ["updated_at", "2019-11-01 14:03:17.458944"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (55.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @PMaattanen: What a beautiful way to open the Roadshow event by @FreshworksInc #experienceeurope https://t.co/BXRO3inZUd"], ["retweets", 2], ["created_at", "2019-11-01 14:03:17.525106"], ["updated_at", "2019-11-01 14:03:17.525106"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (77.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.5ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "It's #Halloween at Helsinki. #ExperienceRoadshow https://t.co/Ufcwlc025w"], ["retweets", 0], ["created_at", "2019-11-01 14:03:17.614916"], ["updated_at", "2019-11-01 14:03:17.614916"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (99.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @gofloaters: Event is live at 4PM today with @FreshworksInc on the GoFloaters YouTube channel:\n\nhttps://t.co/YgmJHhdpcU\n\n#coworking #sof…"], ["retweets", 6], ["created_at", "2019-11-01 14:03:17.725764"], ["updated_at", "2019-11-01 14:03:17.725764"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Hear from IT leaders on our panel discussion with @GlobalPayInc at @Gartner_SYM, Goldcoast. #GartnerSYM https://t.co/G7Auj0FrZ4"], ["retweets", 0], ["created_at", "2019-11-01 14:03:17.803084"], ["updated_at", "2019-11-01 14:03:17.803084"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "How does employee experience drive business productivity?\n\nSreelesh Pillai and Vijay Shankar tell us as they host l… https://t.co/mGEeAFu4B1"], ["retweets", 0], ["created_at", "2019-11-01 14:03:17.880198"], ["updated_at", "2019-11-01 14:03:17.880198"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (51.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Aaaannd we have a winner! #GartnerSYM https://t.co/29hVUOWJ8Q"], ["retweets", 1], ["created_at", "2019-11-01 14:03:17.945675"], ["updated_at", "2019-11-01 14:03:17.945675"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (54.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "We are thrilled to open our new office in downtown Denver as we fulfil our vision of helping businesses create cust… https://t.co/CDTbk96gnj"], ["retweets", 0], ["created_at", "2019-11-01 14:03:18.013345"], ["updated_at", "2019-11-01 14:03:18.013345"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (52.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Join Freshworks at @Gartner_SYM, Barcelona to gain actionable insights on how to run AI projects that realize busin… https://t.co/L1LrXkilr6"], ["retweets", 4], ["created_at", "2019-11-01 14:03:18.078601"], ["updated_at", "2019-11-01 14:03:18.078601"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (52.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "#CustomerSpotlight: With campuses in London, Birmingham and Guildford, @acm_uk has been training artists, producers… https://t.co/Qdzdvi2zQ0"], ["retweets", 0], ["created_at", "2019-11-01 14:03:18.147358"], ["updated_at", "2019-11-01 14:03:18.147358"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (62.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Win an airpod by throwing a ring. \n\nDrop by booth #816 at @Gartner_SYM, Gold Coast to find out how. #GartnerSYM https://t.co/PhCUjs1tb0"], ["retweets", 1], ["created_at", "2019-11-01 14:03:18.224247"], ["updated_at", "2019-11-01 14:03:18.224247"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "So long, Stockholm! #ExperienceRoadshow https://t.co/Q8WYk2j3pY"], ["retweets", 0], ["created_at", "2019-11-01 14:03:18.302171"], ["updated_at", "2019-11-01 14:03:18.302171"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (52.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Day two's been great! #GartnerSym https://t.co/TkND5yB6ia"], ["retweets", 0], ["created_at", "2019-11-01 14:03:18.366609"], ["updated_at", "2019-11-01 14:03:18.366609"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (63.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Are you going to Gartner Symposium, Goa?\n\nVisit booth #S13 to learn the strategy behind  improving productivity and… https://t.co/Bjm2yVxljs"], ["retweets", 2], ["created_at", "2019-11-01 14:03:18.444397"], ["updated_at", "2019-11-01 14:03:18.444397"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (66.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.7ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "We're in Stockholm today for the latest stop on the #ExperienceRoadshow and needless to say, it is a full house. https://t.co/8ZDcZO1Aw5"], ["retweets", 0], ["created_at", "2019-11-01 14:03:18.522562"], ["updated_at", "2019-11-01 14:03:18.522562"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (65.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+Redirected to http://localhost:3000/twitter/index
+Completed 302 Found in 6505ms (ActiveRecord: 1317.2ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:33:25 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 31ms (Views: 28.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:33:28 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 67ms (Views: 63.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:33:36 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dUw7os4o2pLBEWTL2K9tqYjzwC7mtyByOkruTnz7QHbXdBsNEoL5oQpSA9uE0HHJgSbpDmD2vzkjGfpKHNlJOA==", "contact"=>{"name"=>"aak", "email"=>"adithyanat26@gmail.com", "feedback"=>"aaa"}, "commit"=>"Create Contact"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (1.7ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aak"], ["email", "adithyanat26@gmail.com"], ["feedback", "aaa"], ["created_at", "2019-11-01 14:03:36.580234"], ["updated_at", "2019-11-01 14:03:36.580234"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (115.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 2.4ms
+Completed 500 Internal Server Error in 142ms (ActiveRecord: 117.1ms)
+
+
+  
+Mailgun::CommunicationError (key not found: :ciphers):
+  
+app/mailers/example_mailer.rb:10:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:39:42 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"biR32MglER/Rjo5FoENfmYjC7fO8ca3oamaPke/oyALMHFd3FI8yLBrN6VX8PEP5gRfE0zowMqNzNZuVj8rBTA==", "contact"=>{"name"=>"aak", "email"=>"adithyanat26@gmail.com", "feedback"=>"aa"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aak"], ["email", "adithyanat26@gmail.com"], ["feedback", "aa"], ["created_at", "2019-11-01 14:09:42.730255"], ["updated_at", "2019-11-01 14:09:42.730255"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (88.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 0.7ms
+Completed 500 Internal Server Error in 183ms (ActiveRecord: 89.4ms)
+
+
+  
+Mailgun::CommunicationError (key not found: :ciphers):
+  
+app/mailers/example_mailer.rb:10:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:39:46 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"biR32MglER/Rjo5FoENfmYjC7fO8ca3oamaPke/oyALMHFd3FI8yLBrN6VX8PEP5gRfE0zowMqNzNZuVj8rBTA==", "contact"=>{"name"=>"aak", "email"=>"adithyanat26@gmail.com", "feedback"=>"aa"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aak"], ["email", "adithyanat26@gmail.com"], ["feedback", "aa"], ["created_at", "2019-11-01 14:09:46.552678"], ["updated_at", "2019-11-01 14:09:46.552678"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (85.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 2.4ms
+Completed 500 Internal Server Error in 97ms (ActiveRecord: 85.6ms)
+
+
+  
+Mailgun::CommunicationError (key not found: :ciphers):
+  
+app/mailers/example_mailer.rb:10:in `sample_email'
+app/controllers/contacts_controller.rb:11:in `block in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:46:11 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (97.0ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (57.5ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 397ms (Views: 219.8ms | ActiveRecord: 154.5ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:46:14 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 30ms (Views: 23.5ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:46:36 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yq8Z/4zszwQ8bP+9eRYQaWvW4uptfNnIk8B4dhduJPDAlzlQUEbsN/cvmK0laQwJYgPLyus9RoOKk2xyd0wtvg==", "contact"=>{"name"=>"Abhishek", "email"=>"abiabhishek39@gmail.com", "feedback"=>"abc"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Abhishek"], ["email", "abiabhishek39@gmail.com"], ["feedback", "abc"], ["created_at", "2019-11-01 14:16:36.734183"], ["updated_at", "2019-11-01 14:16:36.734183"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (135.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 3001.1ms
+Redirected to 
+Completed 500 Internal Server Error in 3465ms (ActiveRecord: 135.4ms)
+
+
+  
+NoMethodError (undefined method `contact_url' for #<ContactsController:0x00007f7a700b7bc8>
+Did you mean?  contacts_url):
+  
+app/controllers/contacts_controller.rb:12:in `block (2 levels) in create'
+app/controllers/contacts_controller.rb:8:in `create'
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:47:33 +0530
+  
+SyntaxError (/home/aakash/saas-201-subish/project/TweetHub/app/controllers/contacts_controller.rb:26: syntax error, unexpected end, expecting end-of-input):
+  
+app/controllers/contacts_controller.rb:26: syntax error, unexpected end, expecting end-of-input
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:47:45 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Yq8Z/4zszwQ8bP+9eRYQaWvW4uptfNnIk8B4dhduJPDAlzlQUEbsN/cvmK0laQwJYgPLyus9RoOKk2xyd0wtvg==", "contact"=>{"name"=>"Abhishek", "email"=>"abiabhishek39@gmail.com", "feedback"=>"abc"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Abhishek"], ["email", "abiabhishek39@gmail.com"], ["feedback", "abc"], ["created_at", "2019-11-01 14:17:45.135695"], ["updated_at", "2019-11-01 14:17:45.135695"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (80.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 3463.1ms
+Redirected to http://localhost:3000/static_pages/index
+Completed 302 Found in 3592ms (ActiveRecord: 81.3ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 19:47:48 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (90.5ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (74.3ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 255ms (Views: 63.9ms | ActiveRecord: 164.9ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:49:59 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 1.1ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:52:57 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 24ms (Views: 23.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:53:05 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"z4U0inpOqQ1c9O2K9qwYeQque1T8zPLG1aphiGGwkvZtvRQlpuSKPpe3ipqq0wQZA3tSdHqNbY3M+XWMAZKbuA==", "contact"=>{"name"=>"aa", "email"=>"adithyanat26@gmail.com", "feedback"=>"aa"}, "commit"=>"Create Contact"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.6ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "aa"], ["email", "adithyanat26@gmail.com"], ["feedback", "aa"], ["created_at", "2019-11-01 14:23:05.315450"], ["updated_at", "2019-11-01 14:23:05.315450"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (117.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 1619.4ms
+Redirected to http://localhost:3000/static_pages/index
+Completed 302 Found in 1753ms (ActiveRecord: 118.3ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 19:53:07 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (84.4ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (48.8ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 202ms (Views: 53.3ms | ActiveRecord: 133.2ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 19:53:36 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (90.5ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (118.0ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 265ms (Views: 45.3ms | ActiveRecord: 208.4ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:53:38 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 32ms (Views: 30.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 19:53:47 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AArkYIze0skPzMsxIKT5j5Bvqkk+VHQ2zWrvt6FyUCGiMsTPUHTx+sSPrCF82+XvmbqDabgV633UOfuzwVBZbw==", "contact"=>{"name"=>"a", "email"=>"adithyanat26@gmail.com", "feedback"=>"a"}, "commit"=>"Create Contact"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (3.4ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "a"], ["email", "adithyanat26@gmail.com"], ["feedback", "a"], ["created_at", "2019-11-01 14:23:47.751849"], ["updated_at", "2019-11-01 14:23:47.751849"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (96.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 1383.6ms
+Redirected to http://localhost:3000/static_pages/index
+Completed 302 Found in 1503ms (ActiveRecord: 100.5ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 19:53:49 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (82.7ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (72.5ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 226ms (Views: 57.3ms | ActiveRecord: 155.2ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:54:27 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 260ms (ActiveRecord: 0.2ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:55:24 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 10015ms (ActiveRecord: 0.2ms)
+
+
+  
+HTTP::ConnectionError (failed to connect: getaddrinfo: Name or service not known):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:55:50 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 10017ms (ActiveRecord: 0.7ms)
+
+
+  
+HTTP::ConnectionError (failed to connect: getaddrinfo: Name or service not known):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:56:06 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 10022ms (ActiveRecord: 1.4ms)
+
+
+  
+Faraday::ConnectionFailed (Failed to open TCP connection to api.github.com:443 (getaddrinfo: Name or service not known)):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:56:49 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 1354ms (ActiveRecord: 1.2ms)
+
+
+  
+Github::Error::NotFound (GET https://api.github.com/users/Abhishek@7845/repos: 404 - Not Found
+See: https://developer.github.com/v3/repos/#list-user-repositories):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:56:54 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.1ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 1055ms (ActiveRecord: 0.1ms)
+
+
+  
+Github::Error::NotFound (GET https://api.github.com/users/Abhishek@7845/repos: 404 - Not Found
+See: https://developer.github.com/v3/repos/#list-user-repositories):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:57:53 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.4ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 14:27:54.647462"], ["updated_at", "2019-11-01 14:27:54.647462"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (75.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.8ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 14:27:54.731170"], ["updated_at", "2019-11-01 14:27:54.731170"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (55.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.9ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 14:27:54.797237"], ["updated_at", "2019-11-01 14:27:54.797237"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (55.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 1196ms (ActiveRecord: 190.1ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:57:54 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 25ms (Views: 20.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:57:58 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.4ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.3ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "We’re partnering with @iitmadras on leveraging #AI to provide advanced lead scoring capabilities for our customers.… https://t.co/3M2H9M60yc"], ["retweets", 1], ["created_at", "2019-11-01 14:27:59.775131"], ["updated_at", "2019-11-01 14:27:59.775131"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (73.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.4ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "“Our customers are the airlines around the world. We have to offer 24/7 support for mission critical and safety cri… https://t.co/zrk5vlZtSG"], ["retweets", 4], ["created_at", "2019-11-01 14:27:59.857780"], ["updated_at", "2019-11-01 14:27:59.857780"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (61.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "An incredible 'finnish' to an amazing road trip across Europe! Thank you Helsinki, you were wonderful.… https://t.co/R80Uwf7FXO"], ["retweets", 0], ["created_at", "2019-11-01 14:27:59.933452"], ["updated_at", "2019-11-01 14:27:59.933452"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (54.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.6ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @PukanderAnna: Thank you @FreshworksInc and @SaniLeino for the very inspiring #freshworksroadshow touching the very crucial points of #C…"], ["retweets", 1], ["created_at", "2019-11-01 14:27:59.998929"], ["updated_at", "2019-11-01 14:27:59.998929"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (58.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "| Tis the season of all saints eve,\nWhen sloppy sales give you no reprieve |\n\n| Use Freshsales to solve your plight… https://t.co/LmOUfynvYb"], ["retweets", 1], ["created_at", "2019-11-01 14:28:00.066450"], ["updated_at", "2019-11-01 14:28:00.066450"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (55.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @PurePunjabiLtd: Leaving Stockholm! The 9th city on the European tour for @FreshworksInc  with Pure Punjabi heading the culinary experie…"], ["retweets", 1], ["created_at", "2019-11-01 14:28:00.134239"], ["updated_at", "2019-11-01 14:28:00.134239"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (60.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @PMaattanen: What a beautiful way to open the Roadshow event by @FreshworksInc #experienceeurope https://t.co/BXRO3inZUd"], ["retweets", 2], ["created_at", "2019-11-01 14:28:00.283165"], ["updated_at", "2019-11-01 14:28:00.283165"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (58.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.3ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "It's #Halloween at Helsinki. #ExperienceRoadshow https://t.co/Ufcwlc025w"], ["retweets", 0], ["created_at", "2019-11-01 14:28:00.354797"], ["updated_at", "2019-11-01 14:28:00.354797"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @gofloaters: Event is live at 4PM today with @FreshworksInc on the GoFloaters YouTube channel:\n\nhttps://t.co/YgmJHhdpcU\n\n#coworking #sof…"], ["retweets", 6], ["created_at", "2019-11-01 14:28:00.434000"], ["updated_at", "2019-11-01 14:28:00.434000"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Hear from IT leaders on our panel discussion with @GlobalPayInc at @Gartner_SYM, Goldcoast. #GartnerSYM https://t.co/G7Auj0FrZ4"], ["retweets", 0], ["created_at", "2019-11-01 14:28:00.512446"], ["updated_at", "2019-11-01 14:28:00.512446"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (74.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "How does employee experience drive business productivity?\n\nSreelesh Pillai and Vijay Shankar tell us as they host l… https://t.co/mGEeAFu4B1"], ["retweets", 0], ["created_at", "2019-11-01 14:28:00.600610"], ["updated_at", "2019-11-01 14:28:00.600610"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (95.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Aaaannd we have a winner! #GartnerSYM https://t.co/29hVUOWJ8Q"], ["retweets", 1], ["created_at", "2019-11-01 14:28:00.711349"], ["updated_at", "2019-11-01 14:28:00.711349"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (2.3ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "We are thrilled to open our new office in downtown Denver as we fulfil our vision of helping businesses create cust… https://t.co/CDTbk96gnj"], ["retweets", 0], ["created_at", "2019-11-01 14:28:00.790084"], ["updated_at", "2019-11-01 14:28:00.790084"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (57.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Join Freshworks at @Gartner_SYM, Barcelona to gain actionable insights on how to run AI projects that realize busin… https://t.co/L1LrXkilr6"], ["retweets", 4], ["created_at", "2019-11-01 14:28:00.867570"], ["updated_at", "2019-11-01 14:28:00.867570"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (61.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "#CustomerSpotlight: With campuses in London, Birmingham and Guildford, @acm_uk has been training artists, producers… https://t.co/Qdzdvi2zQ0"], ["retweets", 0], ["created_at", "2019-11-01 14:28:00.943456"], ["updated_at", "2019-11-01 14:28:00.943456"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (107.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Win an airpod by throwing a ring. \n\nDrop by booth #816 at @Gartner_SYM, Gold Coast to find out how. #GartnerSYM https://t.co/PhCUjs1tb0"], ["retweets", 1], ["created_at", "2019-11-01 14:28:01.065033"], ["updated_at", "2019-11-01 14:28:01.065033"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (63.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.6ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "So long, Stockholm! #ExperienceRoadshow https://t.co/Q8WYk2j3pY"], ["retweets", 0], ["created_at", "2019-11-01 14:28:01.141274"], ["updated_at", "2019-11-01 14:28:01.141274"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (52.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Day two's been great! #GartnerSym https://t.co/TkND5yB6ia"], ["retweets", 0], ["created_at", "2019-11-01 14:28:01.210953"], ["updated_at", "2019-11-01 14:28:01.210953"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (61.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "Are you going to Gartner Symposium, Goa?\n\nVisit booth #S13 to learn the strategy behind  improving productivity and… https://t.co/Bjm2yVxljs"], ["retweets", 2], ["created_at", "2019-11-01 14:28:01.284440"], ["updated_at", "2019-11-01 14:28:01.284440"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (53.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "We're in Stockholm today for the latest stop on the #ExperienceRoadshow and needless to say, it is a full house. https://t.co/8ZDcZO1Aw5"], ["retweets", 0], ["created_at", "2019-11-01 14:28:01.354785"], ["updated_at", "2019-11-01 14:28:01.354785"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (58.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+Redirected to http://localhost:3000/twitter/index
+Completed 302 Found in 2917ms (ActiveRecord: 1327.4ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:58:01 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (1.3ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 89ms (Views: 79.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:59:08 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 23ms (Views: 21.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:59:12 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 19:59:14 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.8ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (4.8ms)
+Completed 200 OK in 43ms (Views: 34.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 19:59:23 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 28ms (Views: 19.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 19:59:25 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (53.9ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (72.5ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 205ms (Views: 64.3ms | ActiveRecord: 126.4ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:59:28 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.0ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 14:29:29.471291"], ["updated_at", "2019-11-01 14:29:29.471291"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (87.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.3ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 14:29:29.572242"], ["updated_at", "2019-11-01 14:29:29.572242"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (61.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.9ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 14:29:29.649242"], ["updated_at", "2019-11-01 14:29:29.649242"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (63.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 1259ms (ActiveRecord: 215.8ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 19:59:29 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.1ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 26ms (Views: 23.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 21:28:50 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 294ms (ActiveRecord: 0.3ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 21:28:55 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 21:29:06 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ijM5xvy7NAlmFgWJp80BR1hVmIPkxDalITHWY/lOm9UoCxlpIBEXOq1VYpn7sh0nUYCxo2KFqe44YsJnmWySmw==", "contact"=>{"name"=>"a", "email"=>"adithyanat26@gmail.com", "feedback"=>"aa"}, "commit"=>"Create Contact"}
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (0.8ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "a"], ["email", "adithyanat26@gmail.com"], ["feedback", "aa"], ["created_at", "2019-11-01 15:59:06.157614"], ["updated_at", "2019-11-01 15:59:06.157614"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (117.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 1633.5ms
+Redirected to http://localhost:3000/static_pages/index
+Completed 302 Found in 1826ms (ActiveRecord: 118.5ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:29:08 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (81.7ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (69.6ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 207ms (Views: 39.3ms | ActiveRecord: 151.3ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:30:45 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (151.6ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (128.7ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 412ms (Views: 117.0ms | ActiveRecord: 280.3ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:30:48 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (93.2ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (50.7ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 237ms (Views: 79.4ms | ActiveRecord: 143.9ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:32:03 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (79.0ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (54.5ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 187ms (Views: 44.0ms | ActiveRecord: 133.5ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 21:34:42 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 10016ms (ActiveRecord: 0.3ms)
+
+
+  
+Faraday::ConnectionFailed (Failed to open TCP connection to api.github.com:443 (getaddrinfo: Name or service not known)):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 21:34:57 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 10012ms (ActiveRecord: 0.1ms)
+
+
+  
+HTTP::ConnectionError (failed to connect: getaddrinfo: Name or service not known):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:35:14 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (151.7ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (63.1ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 319ms (Views: 83.3ms | ActiveRecord: 214.9ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 21:35:20 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:35:26 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (131.7ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (68.8ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:35:26 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (64.4ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  ↳ app/controllers/static_pages_controller.rb:4
+  [1m[36mTweet Destroy (64.7ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.0ms)
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 451ms (Views: 93.9ms | ActiveRecord: 200.5ms)
+
+
+Completed 200 OK in 260ms (Views: 103.1ms | ActiveRecord: 129.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 21:35:28 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 25ms (Views: 23.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.3ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:06:32.089622"], ["updated_at", "2019-11-01 16:06:32.089622"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (68.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.1ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:06:32.171788"], ["updated_at", "2019-11-01 16:06:32.171788"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (52.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.0ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 16:06:32.237002"], ["updated_at", "2019-11-01 16:06:32.237002"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (77.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 72002ms (ActiveRecord: 202.5ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 21:43:22 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 23.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/contacts" for 127.0.0.1 at 2019-11-01 21:55:47 +0530
+Processing by ContactsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"qtYHN1NVgtx+pp5BpOSslVgDl0oaN7RHu1wNgmW/Vfg39AxcUde9puVFZZYIVuGmmh086QQTKRVtjQaZ4dbppQ==", "contact"=>{"name"=>" ", "email"=>"abiabhishek39@gmail", "feedback"=>" "}, "commit"=>"Create Contact"}
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[36mContact Create (1.3ms)[0m  [1m[32mINSERT INTO "contacts" ("name", "email", "feedback", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", " "], ["email", "abiabhishek39@gmail"], ["feedback", " "], ["created_at", "2019-11-01 16:25:47.927812"], ["updated_at", "2019-11-01 16:25:47.927812"]]
+  ↳ app/controllers/contacts_controller.rb:9
+  [1m[35m (75.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/contacts_controller.rb:9
+ExampleMailer#sample_email: processed outbound mail in 1530.8ms
+Redirected to http://localhost:3000/static_pages/index
+Completed 302 Found in 1635ms (ActiveRecord: 76.6ms)
+
+
+Started GET "/static_pages/index" for 127.0.0.1 at 2019-11-01 21:55:49 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (90.4ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (71.0ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 257ms (Views: 81.6ms | ActiveRecord: 161.4ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 21:55:58 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 21ms (Views: 20.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 21:58:48 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 25ms (Views: 18.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 21:58:50 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.1ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 10013ms (ActiveRecord: 0.7ms)
+
+
+  
+Faraday::ConnectionFailed (Failed to open TCP connection to api.github.com:443 (getaddrinfo: Name or service not known)):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/" for 127.0.0.1 at 2019-11-01 21:59:25 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (102.0ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (59.9ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 236ms (Views: 61.7ms | ActiveRecord: 162.0ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 21:59:28 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.1ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (1.4ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:29:38.811223"], ["updated_at", "2019-11-01 16:29:38.811223"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (84.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.8ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:29:38.908770"], ["updated_at", "2019-11-01 16:29:38.908770"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (67.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.9ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 16:29:38.989548"], ["updated_at", "2019-11-01 16:29:38.989548"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (64.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 10905ms (ActiveRecord: 219.5ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 21:59:39 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.4ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.7ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 83ms (Views: 72.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 21:59:41 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @truejainology: I want to add one thing , it was good to see many foreign tourist there awestruck by its architectural brilliance  , one…"], ["retweets", 23], ["created_at", "2019-11-01 16:30:01.810361"], ["updated_at", "2019-11-01 16:30:01.810361"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (90.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.3ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @ShivaniGupta_5: All of this drama just to install a first time MLA, party political heir as a Chief Minister??? Talk about earning your…"], ["retweets", 13], ["created_at", "2019-11-01 16:30:01.913893"], ["updated_at", "2019-11-01 16:30:01.913893"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (50.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "@arpitjain__ @truejainology @spreadjainism So glad that it's written in Tamil (2nd photo) .would be elated to know the place"], ["retweets", 0], ["created_at", "2019-11-01 16:30:01.981069"], ["updated_at", "2019-11-01 16:30:01.981069"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.5ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @LostTemple7: Friends, My Facebook page Lost Temple  is hacked .....FIR done. https://t.co/DXvJGGjzti\n\nPlease, RT that this information…"], ["retweets", 358], ["created_at", "2019-11-01 16:30:02.048299"], ["updated_at", "2019-11-01 16:30:02.048299"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (50.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.5ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @Arugarr: Thanks to Dr. K. Ajithadoss, Chennai based Educationist &amp; Jainism Scholar Formerly Reader &amp; Head at the Dept of Plant Biology…"], ["retweets", 3], ["created_at", "2019-11-01 16:30:02.179318"], ["updated_at", "2019-11-01 16:30:02.179318"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (57.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @ProfFeynman: • See failure as a beginning.\n• Never stop learning.\n• Assume nothing, question everything.\n• Teach others what you know.…"], ["retweets", 3338], ["created_at", "2019-11-01 16:30:02.246897"], ["updated_at", "2019-11-01 16:30:02.246897"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (52.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.0ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @Dev_Fadnavis: Took darshan &amp; blessings at Kedarnath temple, this morning. \nHar Har Mahadev ! https://t.co/kw2sdW1WQE"], ["retweets", 1803], ["created_at", "2019-11-01 16:30:02.313516"], ["updated_at", "2019-11-01 16:30:02.313516"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "@CricketInMyGene I'll consider him good when the opposition is giving a tough fight!"], ["retweets", 0], ["created_at", "2019-11-01 16:30:02.390842"], ["updated_at", "2019-11-01 16:30:02.390842"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (76.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "@HIMANSH23458624 @truejainology Know anything about the significance of kashyapa gotra?"], ["retweets", 0], ["created_at", "2019-11-01 16:30:02.479818"], ["updated_at", "2019-11-01 16:30:02.479818"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (52.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @MehtaAatman: @truejainology @miss_moronoxy Its so interesting how ancient Jains and Hindus transmitted the knowledge of architecture ah…"], ["retweets", 2], ["created_at", "2019-11-01 16:30:02.544975"], ["updated_at", "2019-11-01 16:30:02.544975"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (53.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @truejainology: The philosophy of worship i.e. bhakt in jainism is different from other religions ,  bhakti in Jainism is merely instrum…"], ["retweets", 103], ["created_at", "2019-11-01 16:30:02.612271"], ["updated_at", "2019-11-01 16:30:02.612271"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @truejainology: Jain pilgrimage at ashtapad tirth (Tibet) where first tirthankar adidev adinath got Nirvana ..\nAshtapad is said to be si…"], ["retweets", 33], ["created_at", "2019-11-01 16:30:02.690949"], ["updated_at", "2019-11-01 16:30:02.690949"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (53.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @YoungJainsIndia: Jai Jinendra! Let's leverage power of LinkedIn to form a big professional networking of Jains - Join us today: https:/…"], ["retweets", 9], ["created_at", "2019-11-01 16:30:02.757576"], ["updated_at", "2019-11-01 16:30:02.757576"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @DaveVescio: I saw a guy at Starbucks today.\nNo iPhone.\nNo tablet.\nNo laptop.\nHe just sat there.\nDrinking coffee.\nLike a Psychopath."], ["retweets", 181571], ["created_at", "2019-11-01 16:30:02.835328"], ["updated_at", "2019-11-01 16:30:02.835328"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (74.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @jaiinronak: My sister Priyanka  has been missing in Kasol, Himachal Pradesh. She went missing in Parvati River. She was last seen on 16…"], ["retweets", 3476], ["created_at", "2019-11-01 16:30:02.923291"], ["updated_at", "2019-11-01 16:30:02.923291"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (63.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.2ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @HRajaBJP: பெருமை கொள்வோம் -  அண்ணாமலையார் கோயில்.\n\nஐரோப்பாவில் 183 அடி உள்ள பைசா கோபுரம் 12-ஆம் நூற்றாண்டில் கட்டுவதற்கு 300 ஆண்டுகளுக்…"], ["retweets", 735], ["created_at", "2019-11-01 16:30:02.999638"], ["updated_at", "2019-11-01 16:30:02.999638"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (98.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.6ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @YoungJainsIndia: H.H. Shri Jungle Wale Baba Chinmay Sagar Muniraj ka aaj swarga gaman ho gaya. OmShanti! May his teaching enlighten gen…"], ["retweets", 18], ["created_at", "2019-11-01 16:30:03.111415"], ["updated_at", "2019-11-01 16:30:03.111415"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (82.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.8ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @TIinExile: By giving false promises that it could withdraw its claim on Ayodhya,Sunni WAQF board is asking VHP to sign it wouldn't ask…"], ["retweets", 3420], ["created_at", "2019-11-01 16:30:03.209693"], ["updated_at", "2019-11-01 16:30:03.209693"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (64.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (0.9ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "@Preetij17281583 @SandhyMahalaxmi Who did this?"], ["retweets", 0], ["created_at", "2019-11-01 16:30:03.286950"], ["updated_at", "2019-11-01 16:30:03.286950"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (66.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (0.3ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[36mTweet Create (1.1ms)[0m  [1m[32mINSERT INTO "tweets" ("content", "retweets", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["content", "RT @ImRaina: A very Happy Birth Anniversary to Missile Man and People's President Dr. A.P.J. Abdul Kalam Ji. You will forever be in the hea…"], ["retweets", 1207], ["created_at", "2019-11-01 16:30:03.365960"], ["updated_at", "2019-11-01 16:30:03.365960"]]
+  ↳ app/controllers/twitter_controller.rb:25
+  [1m[35m (90.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/twitter_controller.rb:25
+Redirected to http://localhost:3000/twitter/index
+Completed 302 Found in 21712ms (ActiveRecord: 1348.4ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 22:00:03 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.6ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (1.4ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 81ms (Views: 71.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 22:00:28 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.1ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 22ms (Views: 20.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 22:00:38 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+  Rendering twitter/index.html.erb within layouts/application
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT "tweets".* FROM "tweets"[0m
+  ↳ app/views/twitter/index.html.erb:10
+  Rendered twitter/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 26ms (Views: 22.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:02:03 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (99.0ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (54.8ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 198ms (Views: 28.3ms | ActiveRecord: 153.8ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:02:05 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (124.7ms)
+Completed 500 Internal Server Error in 141ms (ActiveRecord: 1.7ms)
+
+
+  
+ActionView::Template::Error (undefined method `email' for #<ActionView::Helpers::FormBuilder:0x00007f7a7864cbd0>):
+     6:     <%= f.text_field :name, class: "form-control", placeholder: "Name ", required: true%>
+     7:     <br/>
+     8:     <label>Email id </label>
+     9:     <%= f.email :email, class: "form-control", placeholder: "Email", required: true%>
+    10:     <br/>
+    11:     <label>Feedback </label>
+    12:     <%= f.text_area :feedback, class: "form-control", placeholder: "Feedback", required: true%>
+  
+app/views/contacts/index.html.erb:9:in `block in _app_views_contacts_index_html_erb__2154901448216654820_70081991267900'
+app/views/contacts/index.html.erb:3:in `_app_views_contacts_index_html_erb__2154901448216654820_70081991267900'
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:03:24 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (78.6ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (59.6ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 183ms (Views: 34.3ms | ActiveRecord: 138.3ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:03:26 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 45ms (Views: 44.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:03:50 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (124.4ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (68.5ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 310ms (Views: 98.3ms | ActiveRecord: 192.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:03:52 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (142.3ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (83.6ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 286ms (Views: 45.9ms | ActiveRecord: 226.0ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:03:53 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 10018ms (ActiveRecord: 1.1ms)
+
+
+  
+Faraday::ConnectionFailed (Failed to open TCP connection to api.github.com:443 (getaddrinfo: Name or service not known)):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:04:09 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+Completed 500 Internal Server Error in 10019ms (ActiveRecord: 0.2ms)
+
+
+  
+Faraday::ConnectionFailed (Failed to open TCP connection to api.github.com:443 (getaddrinfo: Name or service not known)):
+  
+app/controllers/github_controller.rb:16:in `myrepo'
+app/controllers/github_controller.rb:6:in `index'
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:04:27 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (76.6ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (60.1ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 195ms (Views: 44.0ms | ActiveRecord: 136.7ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:04:28 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:04:50 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 25ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:05:28 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 31ms (Views: 28.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:05:51 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 45ms (Views: 43.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:06:01 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 27ms (Views: 25.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:06:23 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 21ms (Views: 20.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:06:26 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 35ms (Views: 31.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:06:38 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 22ms (Views: 21.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:06:50 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 37ms (Views: 35.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:06:53 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (117.8ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (65.2ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 212ms (Views: 26.5ms | ActiveRecord: 183.0ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:06:54 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.3ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:36:55.451982"], ["updated_at", "2019-11-01 16:36:55.451982"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (1522.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.4ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:36:56.978771"], ["updated_at", "2019-11-01 16:36:56.978771"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (84.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.2ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 16:36:57.066589"], ["updated_at", "2019-11-01 16:36:57.066589"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (63.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 2265ms (ActiveRecord: 1671.9ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:06:57 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.3ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 37ms (Views: 34.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 22:07:05 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.2ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 12380ms (ActiveRecord: 0.7ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:17:13 +0530
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.1ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (1.2ms)
+Completed 200 OK in 210ms (Views: 198.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:17:16 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (195.7ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (68.0ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 326ms (Views: 43.8ms | ActiveRecord: 263.7ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:17:18 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 32ms (Views: 22.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:18:42 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (132.6ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (53.8ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (2.4ms)
+Completed 200 OK in 467ms (Views: 265.3ms | ActiveRecord: 186.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:18:45 +0530
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (645.4ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (112.8ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 846ms (Views: 76.9ms | ActiveRecord: 758.2ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:18:48 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.4ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:48:49.115790"], ["updated_at", "2019-11-01 16:48:49.115790"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (90.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.8ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 16:48:49.214109"], ["updated_at", "2019-11-01 16:48:49.214109"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (65.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.8ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 16:48:49.293579"], ["updated_at", "2019-11-01 16:48:49.293579"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (74.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 1227ms (ActiveRecord: 233.3ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:18:49 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.6ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.5ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 40ms (Views: 32.0ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/twitter/index" for 127.0.0.1 at 2019-11-01 22:18:52 +0530
+Processing by TwitterController#index as HTML
+  [1m[36mTweet Load (0.3ms)[0m  [1m[34mSELECT  "tweets".* FROM "tweets" ORDER BY "tweets"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/twitter_controller.rb:3
+Completed 500 Internal Server Error in 280ms (ActiveRecord: 1.4ms)
+
+
+  
+OpenSSL::SSL::SSLError (SSL_connect returned=1 errno=0 state=error: certificate verify failed (self signed certificate in certificate chain)):
+  
+app/controllers/twitter_controller.rb:21:in `mytweet'
+app/controllers/twitter_controller.rb:6:in `index'
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:18:55 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 68ms (Views: 31.1ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-11-01 22:33:55 +0530
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/aakash/.rvm/gems/ruby-2.6.3/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#index as HTML
+  [1m[36mRepository Destroy (103.7ms)[0m  [1m[31mDELETE FROM "repositories"[0m
+  ↳ app/controllers/static_pages_controller.rb:3
+  [1m[36mTweet Destroy (71.1ms)[0m  [1m[31mDELETE FROM "tweets"[0m
+  ↳ app/controllers/static_pages_controller.rb:4
+  Rendering static_pages/index.html.erb within layouts/application
+  Rendered static_pages/index.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 420ms (Views: 227.9ms | ActiveRecord: 174.8ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:33:58 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.4ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Freshworks"], ["url", "https://github.com/akuten1298/Freshworks"], ["stars", 0], ["created_at", "2019-11-01 17:03:58.970440"], ["updated_at", "2019-11-01 17:03:58.970440"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (93.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.8ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "FrontEnd-Freshworks"], ["url", "https://github.com/akuten1298/FrontEnd-Freshworks"], ["stars", 0], ["created_at", "2019-11-01 17:03:59.072459"], ["updated_at", "2019-11-01 17:03:59.072459"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (119.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.9ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "saas-201-aakashm"], ["url", "https://github.com/akuten1298/saas-201-aakashm"], ["stars", 0], ["created_at", "2019-11-01 17:03:59.206607"], ["updated_at", "2019-11-01 17:03:59.206607"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (51.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+  [1m[36mRepository Create (0.9ms)[0m  [1m[32mINSERT INTO "repositories" ("name", "url", "stars", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "SAAS_Final_Project"], ["url", "https://github.com/akuten1298/SAAS_Final_Project"], ["stars", 0], ["created_at", "2019-11-01 17:03:59.272578"], ["updated_at", "2019-11-01 17:03:59.272578"]]
+  ↳ app/controllers/github_controller.rb:20
+  [1m[35m (54.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/github_controller.rb:20
+Redirected to http://localhost:3000/github/index
+Completed 302 Found in 958ms (ActiveRecord: 323.4ms)
+
+
+Started GET "/github/index" for 127.0.0.1 at 2019-11-01 22:33:59 +0530
+Processing by GithubController#index as HTML
+  [1m[36mRepository Load (0.2ms)[0m  [1m[34mSELECT  "repositories".* FROM "repositories" ORDER BY "repositories"."id" ASC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/github_controller.rb:3
+  Rendering github/index.html.erb within layouts/application
+  [1m[36mRepository Load (0.7ms)[0m  [1m[34mSELECT "repositories".* FROM "repositories"[0m
+  ↳ app/views/github/index.html.erb:10
+  Rendered github/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 47ms (Views: 41.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/contacts/index" for 127.0.0.1 at 2019-11-01 22:34:02 +0530
+Processing by ContactsController#index as HTML
+  Rendering contacts/index.html.erb within layouts/application
+  Rendered contacts/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 34ms (Views: 25.4ms | ActiveRecord: 0.7ms)
+
+
